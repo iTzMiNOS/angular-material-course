@@ -1,5 +1,5 @@
 
->>> body {
+body {
     margin: 0;
 }
 
@@ -10,4 +10,3 @@ main {
 mat-toolbar a {
   color: white;
 }
-

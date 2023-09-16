@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {Course} from "../model/course";
 import {Observable} from "rxjs";
 import {CoursesService} from "../services/courses.service";
