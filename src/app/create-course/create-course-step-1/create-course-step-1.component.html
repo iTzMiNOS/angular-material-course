@@ -1,5 +1,84 @@
 <div [formGroup]="form" class="course-details-form">
 
+  <mat-form-field floatLabel="always">
+
+    <mat-label>Course Title</mat-label>
+    <input matInput formControlName="title" #title>
+
+    <mat-hint align="end">
+      {{title.value.length}} / 60
+    </mat-hint>
+
+    <mat-error *ngIf="courseTitle.errors?.minlength">
+      Min 5 character
+    </mat-error>
+    <mat-error *ngIf="courseTitle.errors?.maxlength">
+      Max 60 character
+    </mat-error>
+
+    <span matTextPrefix>+32</span>
+
+    <span matTextSuffix>$</span>
+
+  </mat-form-field>
+
+  <mat-radio-group class="course-type" formControlName="courseType">
+
+    <mat-radio-button value="free">Free</mat-radio-button>
+
+    <mat-radio-button value="premium">Premium</mat-radio-button>
+
+  </mat-radio-group>
+
+  <mat-form-field>
+
+    <mat-label>Select</mat-label>
+    <mat-select formControlName="category">
+
+      <mat-optgroup label="Beginners">
+
+        <mat-option value="newprogramming">New To Programming</mat-option>
+        <mat-option value="newjavascript">New To Javascript</mat-option>
+        <mat-option value="newangular">New To Angular</mat-option>
+
+      </mat-optgroup>
+
+      <mat-option value="INTERMEDIATE">Intermediate</mat-option>
+      <mat-option value="ADVANCED">Advanced</mat-option>
+
+    </mat-select>
+
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+
+    <mat-label>Release Date</mat-label>
+    <input matInput formControlName="releasedAt" [matDatepickerFilter]="myFilter" [matDatepicker]="datepicker">
+
+    <mat-datepicker-toggle matSuffix [for]="datepicker">
+
+    </mat-datepicker-toggle>
+
+    <mat-datepicker [dateClass]="dateClass" #datepicker>
+
+    </mat-datepicker>
+
+  </mat-form-field>
+
+  <mat-checkbox color="primary" [disabled]="true">
+    Downloads Allowed?
+  </mat-checkbox>
+
+  <mat-form-field>
+
+    <mat-label>Description</mat-label>
+    <textarea matInput cdkTextareaAutosize #longDescription [cdkAutosizeMinRows]="5" [cdkAutosizeMaxRows]="8" formControlName="longDescription"></textarea>
+
+      <mat-hint align="end">
+        {{longDescription.value.length}} / 300
+      </mat-hint>
+
+  </mat-form-field>
 
 </div>
 
